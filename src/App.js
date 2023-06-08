@@ -3,43 +3,45 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import './App.css';
 
-import { MegaMenu } from 'primereact/megamenu';
-import Navigation from "./components/Nav";
+// import Navigation from "./components/Nav";
 import { InputText } from 'primereact/inputtext';
+import Datatable from "./components/Datatable";
+import { Menubar } from "primereact/menubar";
+import { useState } from "react";
 
 const items = [
   {
-    label: 'Home',
-    icon: 'pi pi-fw pi-home'
+    label: 'State',
+    value: 'state'
+    // icon: 'pi pi-fw pi-home'
   },
   {
-    label: 'Serivces',
-    icon: 'pi pi-fw pi-list'
+    label: 'District',
+    value: 'district'
+    // icon: 'pi pi-fw pi-list'
   },
   {
-    label: 'About us',
-    icon: 'pi pi pi-fw pi-user'
+    label: 'Township',
+    value: 'township'
+    // icon: 'pi pi pi-fw pi-user'
   },
   {
-    label: 'Contact us',
-    icon: 'pi pi pi-fw pi-phone'
+    label: 'City',
+    value: 'city'
+    // icon: 'pi pi pi-fw pi-phone'
   }
   
 ]
 
-const brand = <h2>Brand</h2>
-const input = 
-<span className="p-input-icon-left">
-    <i className="pi pi-search" />
-    <InputText placeholder="Search" />
-</span>
-;
+
+const brand = <h2>BrandName</h2>
 
 function App() {
+  const [name, setName] = useState(null);
   return (
     <div className="App">
-      <Navigation />
-      <MegaMenu start={brand} model={items} end={input} breakpoint="960px" />
+      <Menubar start={brand} onClick={(e) => setName(e.target.textContent.toLowerCase())} model={items}/>
+      <Datatable name={name} />
     </div>
   );
 }

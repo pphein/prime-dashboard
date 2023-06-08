@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.p-menubar-button {
+  position: absolute !important;
+  right: 20px !important;
+}
