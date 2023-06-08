@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Menubar start={brand} onClick={(e) => setName(e.target.textContent.toLowerCase())} model={items}/>
-      <Datatable name={name} />
+      {name ? <Datatable name={name} /> : null }
     </div>
   );
 }

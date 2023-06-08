@@ -14,7 +14,7 @@ function Datatable(props) {
     const [rows, setRows] = useState(10);
     const [currentPage, setCurrentPage ] = useState(1);
     const [totalRecords, setTotalRecords] = useState(120);
-
+    
     const onPageChange = (event) => {
         setFirst(event.first);
         setRows(event.rows);
@@ -23,7 +23,7 @@ function Datatable(props) {
     };
 
     var url = "http://172.16.251.66:1216/address/api/v1/" + name + "?page=" + currentPage + "&per_page=" + rows;
-
+    console.log(url);
     const [data, setData] = useState([])
     const [filterData, setFilterData ] = useState([]);
 
@@ -39,7 +39,7 @@ function Datatable(props) {
 
     useEffect(() => {
         fetchStateInfo();
-    })
+    },[url])
 
     const [value, setValue ] = useState('');
 
