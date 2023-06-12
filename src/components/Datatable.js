@@ -28,11 +28,7 @@ function Datatable(props) {
     const [filterData, setFilterData ] = useState([]);
 
     const fetchStateInfo = () => {
-        return fetch(url, {
-            method: "GET", // POST, PUT, DELETE, etc.
-            // or an url from the current origin
-            referrerPolicy: "unsafe-url"
-          })
+        return fetch(url)
         .then((res) => res.json())
         .then((d) => {
             setData(d.data);
