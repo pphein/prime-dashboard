@@ -4,7 +4,7 @@ import "primeicons/primeicons.css";
 import './App.css';
 
 // import Navigation from "./components/Nav";
-import { InputText } from 'primereact/inputtext';
+// import { InputText } from 'primereact/inputtext';
 import Datatable from "./components/Datatable";
 import { Menubar } from "primereact/menubar";
 import { useState } from "react";
@@ -30,7 +30,7 @@ const items = [
     value: 'city'
     // icon: 'pi pi pi-fw pi-phone'
   }
-  
+
 ]
 
 
@@ -40,8 +40,8 @@ function App() {
   const [name, setName] = useState(null);
   return (
     <div className="App">
-      <Menubar start={brand} onClick={(e) => setName(e.target.textContent.toLowerCase())} model={items}/>
-      {name ? <Datatable name={name} /> : null }
+      <Menubar start={brand} onClick={(e) => setName(e.target.textContent.toLowerCase())} model={items} />
+      {name ? <Datatable name={name} /> : null}
     </div>
   );
 }
