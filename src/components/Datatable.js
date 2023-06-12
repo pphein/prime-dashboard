@@ -22,13 +22,17 @@ function Datatable(props) {
         setCurrentPage(cP);
     };
 
-    var url = "https://pphein.github.io/prime-dashboard?url=http://172.16.251.66:1216/address/api/v1/" + name + "?page=" + currentPage + "&per_page=" + rows;
+    var url = "http://172.16.251.66:1216/address/api/v1/" + name + "?page=" + currentPage + "&per_page=" + rows;
     console.log(url);
     const [data, setData] = useState([])
     const [filterData, setFilterData ] = useState([]);
 
     const fetchStateInfo = () => {
-        return fetch(url)
+        return fetch(url, {
+            method: "GET", // POST, PUT, DELETE, etc.
+            // or an url from the current origin
+            referrerPolicy: "unsafe-url"
+          })
         .then((res) => res.json())
         .then((d) => {
             setData(d.data);
